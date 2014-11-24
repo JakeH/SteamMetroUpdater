@@ -1,5 +1,6 @@
 ﻿using log4net;
 using System.Net;
+using System.Text;
 
 namespace MetroUpdater
 {
@@ -28,6 +29,8 @@ namespace MetroUpdater
 
             using (CookieClient client = new CookieClient())
             {
+                client.Encoding = Encoding.UTF8;
+
                 try
                 {
                     client.UploadString(this.APIUri, "POST", param);

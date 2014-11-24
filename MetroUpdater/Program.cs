@@ -43,8 +43,6 @@ namespace MetroUpdater
 
         private static void Main(string[] args)
         {
-            Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("ja-JP");
-
             PerformTasks();
         }
 

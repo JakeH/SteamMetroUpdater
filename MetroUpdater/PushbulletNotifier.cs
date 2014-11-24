@@ -27,6 +27,8 @@ namespace MetroUpdater
 
             using (CookieClient client = new CookieClient())
             {
+                client.Encoding = Encoding.UTF8;
+
                 client.Headers[HttpRequestHeader.Authorization] = string.Format("Basic {0}",
                     Convert.ToBase64String(Encoding.UTF8.GetBytes(this.APIToken + ":")));
 

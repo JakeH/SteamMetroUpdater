@@ -240,7 +240,7 @@ namespace MetroUpdater
 
                 if (!string.Equals(".zip", Path.GetExtension(zipUri), StringComparison.OrdinalIgnoreCase))
                 {
-                    Logger.Error("Download link location on Deviant Art page was not a zip file." + " " + zipUri);
+                    Logger.Error("Download link location on Deviant Art page was not a zip file." + zipUri);
                     return zipFile;
                 }
 

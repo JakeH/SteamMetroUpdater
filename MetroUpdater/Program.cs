@@ -29,14 +29,14 @@ namespace MetroUpdater
                 Logger.Error("Unhandled exception", (e.ExceptionObject as Exception));
             };
 
-            switch (Settings.Default.Notifier.ToLower().Trim())
+            switch (Settings.Notifier.ToLower().Trim())
             {
                 case "pushover":
-                    Notifier = new PushoverNotifier(Settings.Default.PushoverUserToken, Settings.Default.PushoverAPIToken, Settings.Default.PushoverAPIUri);
+                    Notifier = new PushoverNotifier(Settings.Pushover.UserToken, Settings.Pushover.APIToken, Settings.Pushover.APIUri);
                     break;
 
                 case "pushbullet":
-                    Notifier = new PushbulletNotifier(Settings.Default.PushbulletAPIToken, Settings.Default.PushbulletAPIUri);
+                    Notifier = new PushbulletNotifier(Settings.Pushbullet.APIToken, Settings.Pushbullet.APIUri);
                     break;
             }
         }
@@ -63,7 +63,7 @@ namespace MetroUpdater
                 return;
             }
 
-            string localVersion = (Settings.Default.LocalVersion ?? string.Empty).Trim();
+            string localVersion = (Settings.LocalVersion ?? string.Empty).Trim();
 
             // if the remote version and local version are the same, there's no work to be done.
             if (string.Equals(remoteVersion.Version, localVersion))
@@ -87,8 +87,7 @@ namespace MetroUpdater
             ExtractZipToSkinFolder(zipFile);
 
             // update the last known version information
-            Settings.Default.LocalVersion = remoteVersion.Version;
-            Settings.Default.Save();
+            Settings.LocalVersion = remoteVersion.Version;
 
             // if we have a notifier attached, send the notification
             if (Notifier != null)
@@ -116,7 +115,7 @@ namespace MetroUpdater
                     if (!entry.Name.StartsWith(matchStartFolder, StringComparison.OrdinalIgnoreCase))
                         continue;
 
-                    string outputFilename = Path.Combine(Settings.Default.SkinFolder, entry.Name.Remove(0, matchStartFolder.Length).Replace('/', '\\'));
+                    string outputFilename = Path.Combine(Settings.SkinFolder, entry.Name.Remove(0, matchStartFolder.Length).Replace('/', '\\'));
 
                     if (!Directory.Exists(Path.GetDirectoryName(outputFilename)))
                     {
@@ -143,7 +142,7 @@ namespace MetroUpdater
 
             using (CookieClient client = new CookieClient())
             {
-                HtmlDocument doc = client.GetHtmlDocument(new Uri(Settings.Default.MetroHomeUri));
+                HtmlDocument doc = client.GetHtmlDocument(new Uri(Settings.MetroHomeUri));
 
                 // there are two such "Latest Version" elements on the page. we're assuming the first one is the skin
                 var versionElements = doc.DocumentNode.SelectNodes("//p[contains(text(), 'Latest Version')]");

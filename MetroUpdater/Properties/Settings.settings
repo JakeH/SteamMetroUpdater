@@ -1,33 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MetroUpdater.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="MetroHomeUri" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://metroforsteam.com/</Value>
-    </Setting>
-    <Setting Name="LocalVersion" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="PushbulletAPIUri" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://api.pushbullet.com/v2/pushes</Value>
-    </Setting>
-    <Setting Name="PushoverAPIUri" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://api.pushover.net/1/messages.json</Value>
-    </Setting>
-    <Setting Name="SkinFolder" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="PushbulletAPIToken" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="PushoverAPIToken" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="PushoverUserToken" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="Notifier" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

@@ -65,6 +65,9 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Nini">
+      <HintPath>..\packages\Trove.Nini.1.1.0.0\lib\net20\Nini.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -76,7 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CookieClient.cs" />
-    <Compile Include="INotifier.cs" />
+    <Compile Include="Notifiers\INotifier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\NotifyStrings.Designer.cs">
@@ -89,8 +92,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="PushbulletNotifier.cs" />
-    <Compile Include="PushoverNotifier.cs" />
+    <Compile Include="Notifiers\PushbulletNotifier.cs" />
+    <Compile Include="Notifiers\PushoverNotifier.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="WebClientExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +106,9 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="settings.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

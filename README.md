@@ -15,38 +15,26 @@ Optionally, a notification will be sent via Pushbullet or Pushover.
 
 1. Download the latest release from the [releases section](https://github.com/JakeH/SteamMetroUpdater/releases). 
 2. Extract zip to desired location on your computer.
-3. Edit the `MetroUpdater.exe.config` file according to the [Settings Guide](#settings-guide) section.
+3. Edit the `settings.ini` file according to the [Settings Guide](#settings-guide) section.
 4. Add `MetroUpdater.exe` as a scheduled task. See the [Scheduled Task](#scheduled-task) section for one way to accomplish this.
 
 ## Settings Guide
 
-There are some settings that you must establish in the `MetroUpdater.exe.config` file
+There are some settings that you must establish in the `settings.ini` file
 before you can run this app.
 
-These settings are under the `applicationSettings` node. You will need to put the value
-inside the `<value></value>` node. 
+#### App Section 
 
-For example, the following shows the value of `c:\steam\skins\metro\` associated with the
-setting `SkinFolder`.
-
-```xml
-<setting name="SkinFolder" serializeAs="String">
-	<value>c:\steam\skins\metro\</value>
-</setting>
-```
-
-#### MetroHomeUri
+##### MetroHomeUri
 
 This is the Uri to the home page for the skin project. This is where the version number and download link are discovered.
 
-
-#### SkinFolder
+##### SkinFolder
 
 The local folder where the downloaded skin will be extracted to. This value should look something like 
 `c:\program files\steam\skins\metro\`.
 
-
-#### Notifier
+##### Notifier
 
 If blank, no notification will be sent upon successful update.
 
@@ -56,25 +44,27 @@ The valid non-blank values are:
 * `pushover`=> Notifications will be sent via Pushover
 
 
-#### PushbulletAPIToken
+#### Pushbullet Section
+##### APIToken
 
 If you choose to have Pushbullet notification, this must be your API token. This can be found on your 
 Pushbullet page https://www.pushbullet.com/account
 
-#### PushbulletAPIUri
+##### PushbulletAPIUri
 
 Pushbullet API Uri. Should not need to be changed from the default.
 
-#### PushoverAPIToken
+#### Pushover Section
+##### APIToken
 
 If you choose to have Pushover notification, this needs to be the API token for the registered app your created 
 in the Pushover.net system.
 
-#### PushoverUserToken
+##### UserToken
 
 If you choose to have Pushover notification, this needs to be your user API token.
 
-#### PushoverAPIUri
+##### APIUri
 
 Psuhover API Uri. Should not need to be changed from the default.
 

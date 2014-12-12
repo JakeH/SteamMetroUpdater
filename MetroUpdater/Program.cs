@@ -145,18 +145,18 @@ namespace MetroUpdater
                 HtmlDocument doc = client.GetHtmlDocument(new Uri(Settings.MetroHomeUri));
 
                 // there are two such "Latest Version" elements on the page. we're assuming the first one is the skin
-                var versionElements = doc.DocumentNode.SelectNodes("//p[contains(text(), 'Latest Version')]");
-                if (versionElements.Count == 0)
+                var versionElements = doc.DocumentNode.SelectNodes("//h1[contains(text(), 'Metro for Steam')]");
+                if (versionElements == null || versionElements.Count == 0)
                 {
                     Logger.Error("No version elements found!");
                     return ret;
                 }
 
                 var firstVersionElement = versionElements[0];
-                ret.Version = firstVersionElement.InnerText.Replace("Latest Version:", string.Empty).Trim();
-
+                ret.Version = firstVersionElement.ParentNode.SelectSingleNode(".//p").InnerText.Trim();
+                
                 // the download link element will be a sibling to the versio element
-                var downloadElement = firstVersionElement.ParentNode.SelectSingleNode("//a[contains(@class, 'button')]");
+                var downloadElement = firstVersionElement.ParentNode.SelectSingleNode("a");
 
                 if (downloadElement == null)
                 {
